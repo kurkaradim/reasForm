@@ -30,7 +30,7 @@ export default class SignupForm extends React.Component{
     }
 
     handleChange = input => e => {
-        console.log(input, e)
+        console.log(input, e.target.value)
         this.setState({ [input]: e.target.value });
     }
     
