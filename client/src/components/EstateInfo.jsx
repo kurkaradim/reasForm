@@ -47,7 +47,7 @@ class EstateInfo extends React.Component {
 				<div className="formItem">
 					<label>
 						Estate type
-						<select>
+						<select onChange={handleChange('estatetype')}>
 							<option value="notselected">Please select an estate type:</option>
 							<option value="Apartment">Apartment</option>
 							<option value="House">House</option>
