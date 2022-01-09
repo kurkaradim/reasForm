@@ -70,7 +70,7 @@ app.post("/api/lead", (req, res) => {
     });
     newFormResponse.save((err) => {
         if(err){
-            res.json("SOMETHING WENT WRONG")
+            res.json(err)
         } else {
             res.json("ALL GOOD SAVED")
         }
