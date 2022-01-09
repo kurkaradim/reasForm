@@ -16,7 +16,7 @@ class EstateInfo extends React.Component {
 	validateInputs = () => {
 		const { estatetype, region, district } = this.props.values;
 
-		if (estatetype.length > 0) {
+		if (estatetype != "notselected") {
 			this.setState({ validateEstate: true });
 		} else {
 			this.setState({ validateEstate: false });
@@ -47,13 +47,13 @@ class EstateInfo extends React.Component {
 				<div className="formItem">
 					<label>
 						Estate type
-						<input
-							type="text"
-							placeholder="Estate type"
-							value={values.estatetype}
-							onChange={handleChange('estatetype')}
-						/>
-						{validateEstate === false ? <p className='error'>Estate type cannot be blank</p> : ''}
+						<select>
+							<option value="notselected">Please select an estate type:</option>
+							<option value="Apartment">Apartment</option>
+							<option value="House">House</option>
+							<option value="Land">Land</option>
+						</select>
+						{validateEstate === false ? <p className='error'>Estate has to be selected</p> : ''}
 					</label>
 				</div>
 				<div className="formItem">
