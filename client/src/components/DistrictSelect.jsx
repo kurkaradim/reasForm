@@ -7,7 +7,6 @@ class DistrictSelect extends React.Component {
 	}
 
     handleChange = (e) => {
-        console.log(e.target.value)
         this.props.onChange(e)
     }
 

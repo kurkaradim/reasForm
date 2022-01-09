@@ -41,8 +41,7 @@ class EstateInfo extends React.Component {
 	render() {
 		const { values, handleChange, nextStep } = this.props;
 		const { validateEstate, validateRegion, validateDistrict } = this.state;
-		console.log(this.state);
-		console.log(this.props);
+
 		return (
 			<form className="estateInfo">
 				<div className="formItem">

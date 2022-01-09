@@ -26,7 +26,7 @@ class Confirmation extends React.Component {
     };
     fetch('/api/lead', requestOptions)
         .then(response => response.json())
-        .then(data => this.props.nextStep()).catch(err => {this.setState({errorMessage: err})})
+        .then(data => {console.log(data);this.props.nextStep()}).catch(err => {console.log(err)})
 
   }
 
