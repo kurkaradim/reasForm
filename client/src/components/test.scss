@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 200px;
+}
+
+.formItem {
+    display: flex;
+    flex-direction: column;
+    margin: 7px auto;
+}
+
+label {
+    margin-left: 10px;
+}
+
+select, input {
+    margin-left: 10px;
+    width: 200px;
+}
+
+button {
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+p.error{
+    color: red;
+}
+
+.overview {
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.done {
+    display: flex;
+    justify-content: center;
+    color: green;
+    font-size: 50px;
+}
