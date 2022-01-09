@@ -61,7 +61,7 @@ class Confirmation extends React.Component {
                 onClick={ this.Continue }
                 type="submit"
               >
-                Confirm & Continue
+                Confirm
               </button>
           </div>
          

@@ -6,7 +6,7 @@ require('dotenv').config()
 const mongoString = process.env.APIKEY;
 
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 const app = express();
 
 
@@ -40,13 +40,13 @@ const FormResponse = mongoose.model('FormResponse', FormResponseSchema);
 
 //Routes
 app.get("/api/regions", (req,res) => {
-    res.json({regions: ["Zlínský", "Moravskoslezský", "Jihomoravský", "Olomoucký", "Vysočina", "Pardubický", "Královehradecký", "Jihočeský", "Hlavní město Praha", "Středočeský", "Liberecký", "Plzeňský", "Ústecký", "Karlovarský."]})
+    res.json({regions: ["Zlínský", "Moravskoslezský", "Jihomoravský", "Olomoucký", "Vysočina", "Pardubický", "Královehradecký", "Jihočeský", "Hlavní město Praha", "Středočeský", "Liberecký", "Plzeňský", "Ústecký", "Karlovarský"]})
 });
 
 app.get("/api/districts/:region", (req, res) => {
     console.log(req.params)
     if(req.params["region"] === "all"){
-        res.json({districts: ["Hl. m. Praha", "Benešov", "Beroun", "Kladno", "Kolín", "Kutná Hora", "Mělník", "Mladá Boleslav", "Nymburk", "Praha-východ", "Praha-západ", "Příbram", "Rakovník", "České Budějovice", "Český Krumlov", "Jindřichův Hradec", "Písek", "Prachatice", "Strakonice", "Tábor", "Domažlice", "Klatovy", "Plzeň-město", "Plzeň-jih", "Plzeň-sever", "Rokycany", "Tachov", "Cheb", "Karlovy Vary", "Sokolov", "Děčín", "Chomutov", "Litoměřice", "Louny", "Most", "Teplice", "Ústí nad Labem", "Česká Lípa", "Jablonec nad Nisou", "Liberec", "Semily", "Hradec Králové", "Jičín", "Náchod", "Rychnov nad Kněžnou", "Trutnov", "Chrudim", "Pardubice", "Svitavy", "Ústí nad Orlicí", "Havlíčkův Brod", "Jihlava", "Pelhřimov", "Třebíč", "Žďár nad Sázavou", "Blansko", "Brno-město", "Brno-venkov", "Břeclav", "Hodonín", "Vyškov", "Znojmo", "Jeseník", "Olomouc", "Prostějov", "Přerov", "Šumperk", "Kroměříž", "Uherské Hradiště", "Vsetín", "Zlín", "Bruntál", "Frýdek-Místek", "Karviná", "Nový Jičín", "Opava", "Ostrava-město"]})
+        res.json({districts: {"Zlínský": ["Kroměříž", "Uherské Hradiště", "Vsetín", "Zlín"], "Moravskoslezský": ["Bruntál", "Frýdek-Místek", "Karviná", "Nový Jičín", "Opava", "Ostrava-město"], "Jihomoravský": ["Blansko", "Brno-město", "Brno-venkov", "Břeclav", "Hodonín", "Vyškov", "Znojmo"], "Olomoucký": ["Jeseník", "Olomouc", "Prostějov", "Přerov", "Šumperk"], "Vysočina": ["Havlíčkův Brod", "Jihlava", "Pelhřimov", "Třebíč", "Žďár nad Sázavou"], "Pardubický": ["Chrudim", "Pardubice", "Svitavy", "Ústí nad Orlicí"], "Královehradecký": ["Hradec Králové", "Jičín", "Náchod", "Rychnov nad Kněžnou", "Trutnov"], "Jihočeský": ["České Budějovice", "Český Krumlov", "Jindřichův Hradec", "Písek", "Prachatice", "Strakonice", "Tábor"], "Hlavní město Praha":["Hl. m. Praha"], "Středočeský":["Benešov", "Beroun", "Kladno", "Kolín", "Kutná Hora", "Mělník", "Mladá Boleslav", "Nymburk", "Praha-východ", "Praha-západ", "Příbram", "Rakovník"], "Liberecký": ["Česká Lípa", "Jablonec nad Nisou", "Liberec", "Semily"], "Plzeňský": ["Domažlice", "Klatovy", "Plzeň-město", "Plzeň-jih", "Plzeň-sever", "Rokycany", "Tachov"], "Ústecký":["Děčín", "Chomutov", "Litoměřice", "Louny", "Most", "Teplice", "Ústí nad Labem"], "Karlovarský": ["Cheb", "Karlovy Vary", "Sokolov"]}})
     } else{
     }
 });
@@ -61,6 +61,9 @@ if (process.env.NODE_ENV === 'production') {
     });
   }
 
+  app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname, 'client/public', 'index.html'));
+  });
 
 app.post("/api/lead", (req, res) => {
     const data = req.body;

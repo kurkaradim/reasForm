@@ -10,7 +10,7 @@ export default class SignupForm extends React.Component{
         super(props);
         this.state = {
             step: 1,
-            estatetype: '',
+            estatetype: 'notselected',
             fullname: '',
             phone: '',
             email: '',

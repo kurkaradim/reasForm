@@ -42,12 +42,13 @@ class EstateInfo extends React.Component {
 		const { values, handleChange, nextStep } = this.props;
 		const { validateEstate, validateRegion, validateDistrict } = this.state;
 
+
 		return (
 			<form className="estateInfo">
 				<div className="formItem">
 					<label>
 						Estate type
-						<select onChange={handleChange('estatetype')}>
+						<select value={values.estatetype} onChange={handleChange('estatetype')}>
 							<option value="notselected">Please select an estate type:</option>
 							<option value="Apartment">Apartment</option>
 							<option value="House">House</option>

@@ -18,7 +18,7 @@ class RegionSelect extends React.Component {
 		if (this.state.data.regions) {
             const array = this.state.data.regions
 			return (
-				<select onChange={(e)=> this.handleChange(e)}>
+				<select value={this.props.value} onChange={(e)=> this.handleChange(e)}>
 					<option value="notselected">Please select a region</option>
                     {array.map((reg, i) => {return <option key={i} value={reg}>{reg}</option>})}
                 </select>
